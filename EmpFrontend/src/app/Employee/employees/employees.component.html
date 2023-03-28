@@ -1,0 +1,33 @@
+<div class="container border mt-3">
+  <div class="text-center border m-3">
+    <h2>List of All Employees</h2>
+  </div>
+  <table class="table caption-top border">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Department</th>
+        <th scope="col">Job Title</th>
+        <th scope="col">Manager</th>
+        <th scope="col">Hire </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of EmployeesList">
+        <th scope="row">{{emp.employee_id}}</th>
+        <td>{{emp.employee_name}}</td>
+        <td>{{emp.employee_email}}</td>
+        <td>{{emp.employee_phone}}</td>
+        <td>{{emp.employee_address}}</td>
+        <td>{{emp.employee_department}}</td>
+        <td>{{emp.employee_jobTitle}}</td>
+        <td>{{emp.employee_manager}}</td>
+        <td>{{emp.employee_hireDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

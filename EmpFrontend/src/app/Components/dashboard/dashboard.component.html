@@ -1,0 +1,92 @@
+<div class="container mt-2">
+    <div class="row text-center border">
+        <h2>DashBoard</h2>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-3 m-3">
+            <label for="employee_department" class="form-label">Employee Department</label>
+            <select class="form-select" [(ngModel)]="employee_department" (change)="filterByDepartment()"
+                id="employee_department">
+                <option value="IT">IT</option>
+                <option value="App Engineering">App Engineering</option>
+                <option value="Support">Support</option>
+                <option value="Testing">Testing</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="col-3 m-3">
+            <label for="employee_jobTitle" class="form-label">Employee Job Title</label>
+            <select class="form-select" [(ngModel)]="employee_jobTitle" (change)="filterByJob()" id="employee_jobTitle">
+                <option value="Developer">Developer</option>
+                <option value="Senior Developer">Senior Developer</option>
+                <option value="Tester">Tester</option>
+                <option value="Administrator">Administrator</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="col-3 m-3">
+            <label for="employee_manager" class="form-label">Employee Manager</label>
+            <select class="form-select" [(ngModel)]="employee_manager" (change)="filterByManager()"
+                id="employee_manager">
+                <option value="Aniket">Aniket</option>
+                <option value="Sumit">Sumit</option>
+                <option value="Sailesh">Sailesh</option>
+                <option value="Neha">Neha</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row text-center border">
+        <h2>Employees Data</h2>
+    </div>
+    <table class="border mt-3 p-3" mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="employee_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  ID </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_id }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_name }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_email }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_phone }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_address }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_department">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Department </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_department }} </td>
+        </ng-container>
+        <ng-container matColumnDef="employee_jobTitle">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Job Title </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_jobTitle }} </td>
+        </ng-container>
+        <ng-container matColumnDef="employee_manager">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Manager </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_manager }} </td>
+        </ng-container>
+        <ng-container matColumnDef="employee_hireDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Hire Date </th>
+            <td mat-cell *matCellDef="let employee"> {{ employee.employee_hireDate }} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+</div>
